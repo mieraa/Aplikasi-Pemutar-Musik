@@ -27,6 +27,7 @@ User dapat membuat playlist nya berdasarkan lagu lagu yang dibuat oleh admin di 
    - menambahkan lagu dari library ke playlist
    - membuat dan melihat isi playlist
    - memutar lagu dari playlist
+   - menghapus lagu dari playlist
 
 3. CARA MENJALANKAN PROGRAM
   - download file nya
