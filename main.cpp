@@ -63,7 +63,7 @@ int main() {
                     showLibrary(L.admin.firstSong);
                 else if (u == 2) {
                     string key;
-                    cout << "Cari Lagu (ID/Judul/Artis): ";
+                    cout << "Tambah Lagu (ID): ";
                     cin >> key;
                     adrSong S = searchSongDLL(L.admin.firstSong, key);
                     if (S)
