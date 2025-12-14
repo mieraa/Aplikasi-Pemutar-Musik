@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1765687855 source:c:\users\arvind\desktop\kuliah\struktur data\tugas besar kelompok 7\codingan2\lagu.cpp
+	"lagu.h"
+
+1765686941 c:\users\arvind\desktop\kuliah\struktur data\tugas besar kelompok 7\codingan2\lagu.h
+	<iostream>
+	<string>
+
+1765688009 source:c:\users\arvind\desktop\kuliah\struktur data\tugas besar kelompok 7\codingan2\main.cpp
+	"lagu.h"
+
