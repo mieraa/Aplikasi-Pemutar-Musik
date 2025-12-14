@@ -29,6 +29,7 @@ int main() {
                 cout << "1. Add Lagu\n";
                 cout << "2. View Library\n";
                 cout << "3. Delete Lagu\n";
+                cout << "4. Edit Lagu\n";
                 cout << "0. Back\nPilih: ";
                 cin >> a;
 
@@ -49,8 +50,16 @@ int main() {
                     cout << "ID hapus: ";
                     cin >> id;
                     deleteSongDLL(L.admin.firstSong, id);
+
                     cout << ">> Lagu berhasil dihapus\n";
                 }
+                else if (a == 4) {
+                    string id;
+                    cout << "ID lagu yang mau diedit: ";
+                    cin >> id;
+                    editSong(L.admin.firstSong, id);
+                }
+
             } while (a != 0);
         }
 
