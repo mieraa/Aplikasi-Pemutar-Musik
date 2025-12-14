@@ -231,4 +231,29 @@ void deleteSongFromPlaylist(adrUser U, string id) {
     cout << "Lagu tidak ditemukan di playlist\n";
 }
 
+void editSong(adrSong head, string id) {
+    adrSong S = head;
 
+    while (S != nullptr && S->info.id != id) {
+        S = S->next;
+    }
+
+    if (S == nullptr) {
+        cout << "Lagu tidak ditemukan\n";
+        return;
+    }
+
+    cout << "=== EDIT LAGU ===\n";
+    cout << "Judul lama  : " << S->info.title << endl;
+    cout << "Artis lama  : " << S->info.artist << endl;
+    cout << "Genre lama  : " << S->info.genre << endl;
+
+    cout << "\nJudul baru  : ";
+    cin >> S->info.title;
+    cout << "Artis baru  : ";
+    cin >> S->info.artist;
+    cout << "Genre baru  : ";
+    cin >> S->info.genre;
+
+    cout << ">> Lagu berhasil diedit\n";
+}
