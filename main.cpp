@@ -12,7 +12,6 @@ int main() {
     insertLastSong(L.admin.firstSong, createSong("106", "RomanticHomicide", "d4vd", "Santai"));
     insertLastSong(L.admin.firstSong, createSong("104", "Lalala", "bbno$", "Santai"));
 
-
     adrUser user = createUser("USER");
     insertUser(L, user);
 
@@ -22,11 +21,15 @@ int main() {
         cout << "1. Admin\n2. User\n0. Exit\nPilih: ";
         cin >> menu;
 
+        // Menu Admin
         if (menu == 1) {
             int a;
             do {
                 cout << "\n--- ADMIN ---\n";
-                cout << "1. Add Lagu\n2. View Library\n3. Delete Lagu\n0. Back\nPilih: ";
+                cout << "1. Add Lagu\n";
+                cout << "2. View Library\n";
+                cout << "3. Delete Lagu\n";
+                cout << "0. Back\nPilih: ";
                 cin >> a;
 
                 if (a == 1) {
@@ -36,18 +39,22 @@ int main() {
                     cout << "Artis: "; cin >> ar;
                     cout << "Genre: "; cin >> g;
                     insertLastSong(L.admin.firstSong, createSong(id, t, ar, g));
-                    cout << ">> Lagu berhasil ditambahkan ke library\n";
+                    cout << ">> Lagu berhasil ditambahkan\n";
                 }
-                else if (a == 2)
+                else if (a == 2) {
                     showLibrary(L.admin.firstSong);
+                }
                 else if (a == 3) {
                     string id;
-                    cout << "ID hapus: "; cin >> id;
+                    cout << "ID hapus: ";
+                    cin >> id;
                     deleteSongDLL(L.admin.firstSong, id);
-                    cout << ">> Lagu berhasil dihapus dari library\n";
+                    cout << ">> Lagu berhasil dihapus\n";
                 }
             } while (a != 0);
         }
+
+        // Menu User
         else if (menu == 2) {
             int u;
             do {
@@ -56,14 +63,16 @@ int main() {
                 cout << "2. Add Lagu ke Playlist\n";
                 cout << "3. View Playlist\n";
                 cout << "4. Play Lagu dari Playlist\n";
+                cout << "5. Hapus Lagu dari Playlist\n";
                 cout << "0. Back\nPilih: ";
                 cin >> u;
 
-                if (u == 1)
+                if (u == 1) {
                     showLibrary(L.admin.firstSong);
+                }
                 else if (u == 2) {
                     string key;
-                    cout << "Tambah Lagu (ID): ";
+                    cout << "Tambahkan Lagu (ID/Judul/Artis): ";
                     cin >> key;
                     adrSong S = searchSongDLL(L.admin.firstSong, key);
                     if (S)
@@ -71,12 +80,22 @@ int main() {
                     else
                         cout << "Lagu tidak ditemukan\n";
                 }
-                else if (u == 3)
+                else if (u == 3) {
                     showPlaylist(user);
-                else if (u == 4)
+                }
+                else if (u == 4) {
                     playPlaylist(L, user);
+                }
+                else if (u == 5) {
+                    string id;
+                    cout << "Ketik ID lagu yang ingin dihapus: ";
+                    cin >> id;
+                    deleteSongFromPlaylist(user, id);
+                }
+
             } while (u != 0);
         }
+
     } while (menu != 0);
 
     return 0;
