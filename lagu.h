@@ -51,5 +51,6 @@ void addSongToPlaylist(adrUser U, adrSong S);
 void showPlaylist(adrUser U);
 adrSong findNextSameArtist(List &L, adrSong current);
 void playPlaylist(List &L, adrUser U);
+void deleteSongFromPlaylist(adrUser U, string id);
 
 #endif
