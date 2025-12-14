@@ -201,6 +201,34 @@ void playPlaylist(List &L, adrUser U) {
     }
 }
 
+void deleteSongFromPlaylist(adrUser U, string id) {
+    if (U->firstPlaylist == nullptr) {
+        cout << "Playlist kosong\n";
+        return;
+    }
 
+    adrRel curr = U->firstPlaylist;
+    adrRel prev = nullptr;
+
+    while (curr != nullptr) {
+        if (curr->song->info.id == id) {
+            if (prev == nullptr) {
+                U->firstPlaylist = curr->next;
+            }
+            else {
+                prev->next = curr->next;
+            }
+
+            cout << ">> Lagu berhasil dihapus dari playlist\n";
+            delete curr;
+            return;
+        }
+
+        prev = curr;
+        curr = curr->next;
+    }
+
+    cout << "Lagu tidak ditemukan di playlist\n";
+}
 
 
